@@ -10,7 +10,21 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
+        VStack(spacing: 20) {
+            Text("Title")
+                .font(.largeTitle)
+            
+            Text("Subtitle")
+                .font(.title)
+                .foregroundColor(Color.gray)
+            
+            Text("Short description of what I am demostrating goes here.")
+                .frame(maxWidth: .infinity)
+                .font(.title)
+                .foregroundColor(Color.white)
+                .padding()
+                .background(Color.blue)
+        }
     }
 }
 
