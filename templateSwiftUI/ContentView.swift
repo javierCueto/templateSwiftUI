@@ -11,23 +11,30 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack(spacing: 20) {
-            Text("Images")
+            Text("Layers")
                 .font(.largeTitle)
             
-            Text("Using SF Symbols")
+            Text("The basics")
                 .foregroundColor(Color.gray)
             
-            Text("You will see I use icons or symbols to add clarity to what I'm demonstrating. These come from Apple's new symbol font library which you can browse using an app called 'SF Symbols'.")
+            Text("With SwiftUI views, you can add layers on top (.overlay) and behind (.background) the view.")
                 .frame(maxWidth: .infinity)
                 .padding()
                 .background(Color.blue)
                 .foregroundColor(Color.white)
                 .layoutPriority(1)
             
-            Image(systemName: "hand.thumbsup.fill")
-                .font(.largeTitle)
-            
             Image("SF Symbols")
+                .opacity(0.7)
+                .background(Color.red.opacity(0.3)) //behind image
+                .background(Color.yellow.opacity(0.3))
+                //behind red
+                .background(Color.blue.opacity(0.3))
+                //behid yellow
+                .overlay(Text("Yosemite"))
+                //layer on top of image
+            
+            Image("Layers")
               
                 
         
