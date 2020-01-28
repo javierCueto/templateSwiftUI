@@ -11,32 +11,37 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack(spacing: 20) {
-            Text("Layers")
+            Text("Shapes")
                 .font(.largeTitle)
             
-            Text("The basics")
+            Text("Short Introduction")
                 .foregroundColor(Color.gray)
             
-            Text("With SwiftUI views, you can add layers on top (.overlay) and behind (.background) the view.")
+            Text("I'll make shapes, give them color and put them behind other views just for decoration.")
                 .frame(maxWidth: .infinity)
                 .padding()
                 .background(Color.blue)
                 .foregroundColor(Color.white)
+                .layoutPriority(3)
+            
+            Text("This text has a rounded rectangle behind it")
+                .foregroundColor(.white)
+                .padding()
+                .background(
+                    RoundedRectangle(cornerRadius: 20)// shape
+                        .foregroundColor(.blue))// shape blue
+                .padding()
+                .layoutPriority(2)
+            
+            Text("But sometimes I'll use color and a corner radius:")
+            
+            
+            Text("This text has a color with a corner radius")
+                .foregroundColor(.white)
+                .padding()
+                .background(Color.blue)
+                .cornerRadius(20)
                 .layoutPriority(1)
-            
-            Image("SF Symbols")
-                .opacity(0.7)
-                .background(Color.red.opacity(0.3)) //behind image
-                .background(Color.yellow.opacity(0.3))
-                //behind red
-                .background(Color.blue.opacity(0.3))
-                //behid yellow
-                .overlay(Text("Yosemite"))
-                //layer on top of image
-            
-            Image("Layers")
-              
-                
         
             
         }
