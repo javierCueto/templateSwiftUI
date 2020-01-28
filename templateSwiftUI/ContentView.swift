@@ -11,20 +11,31 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack(spacing: 20) {
-            Text("Title")
+            Text("Images")
                 .font(.largeTitle)
             
-            Text("Subtitle")
-                .font(.title)
+            Text("Using SF Symbols")
                 .foregroundColor(Color.gray)
             
-            Text("Short description of what I am demostrating goes here.")
+            Text("You will see I use icons or symbols to add clarity to what I'm demonstrating. These come from Apple's new symbol font library which you can browse using an app called 'SF Symbols'.")
                 .frame(maxWidth: .infinity)
-                .font(.title)
-                .foregroundColor(Color.white)
                 .padding()
                 .background(Color.blue)
+                .foregroundColor(Color.white)
+                .layoutPriority(1)
+            
+            Image(systemName: "hand.thumbsup.fill")
+                .font(.largeTitle)
+            
+            Image("SF Symbols")
+              
+                
+        
+            
         }
+        .font(.title)
+        .edgesIgnoringSafeArea(.bottom)
+
     }
 }
 
