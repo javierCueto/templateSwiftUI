@@ -9,45 +9,48 @@
 import SwiftUI
 
 
-// some views pull In
+// Some Views Push Out
 
 struct ContentView: View {
     var body: some View {
         VStack(spacing: 20) {
             
-            Text("Layout Behavior")
-                .font(.largeTitle)
+           Text("Layout Behavior")
+            Text("Views that Push Out")
+                .font(.title)
+                .foregroundColor(.gray)
             
-            Text("Views that Pull In")
-                .foregroundColor(Color.gray)
-            
-            Text("Some views minimize their frame size so it is only as big as the content within it.")
+            Text("Some views will push out to fill up all available space within their parent.")
                 .frame(maxWidth: .infinity)
                 .padding()
+                .font(.title)
                 .background(Color.purple)
-                .foregroundColor(Color.white)
                 .layoutPriority(1)
             
-           Image(systemName: "arrow.down.to.line.alt")
-            HStack {
-                // Order views horizontally
-                Image(systemName: "arrow.right.to.line.alt")
-                Text("Text views pull in")
-                Image(systemName: "arrow.left.to.line.alt")
-            }
-            
-            Image(systemName: "arrow.up.to.line.alt")
-            Text("Pull-In views tend to center themselves within their parent container view.")
-                .frame(maxWidth: .infinity)
-                .padding()
-                .background(Color.purple)
-                .foregroundColor(Color.white)
-                .layoutPriority(1)
+            Color.purple
+            // Add 5 layers on top of the color view
+                .overlay(
+                    Image(systemName: "arrow.up.left")
+                        .padding() // Add spacing around the symbol
+                    ,alignment: .topLeading) // Align within the layer
+                .overlay(
+                    Image(systemName: "arrow.up.right")
+                        .padding()
+                    , alignment: .topTrailing)
+                .overlay(
+                    Image(systemName: "arrow.down.left")
+                        .padding()
+                    , alignment: .bottomLeading)
+                .overlay(
+                        Image(systemName: "arrow.down.right")
+                            .padding()
+                    , alignment: .bottomTrailing)
+                .overlay(Text("Colors are Push-Out views"))
         
             
         }
-        .font(.title)
-        .edgesIgnoringSafeArea(.bottom)
+        .font(.largeTitle)
+        //.edgesIgnoringSafeArea(.bottom)
 
     }
 }
