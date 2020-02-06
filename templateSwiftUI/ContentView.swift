@@ -9,54 +9,32 @@
 import SwiftUI
 
 
-// Some Views Push Out
-
+// Preview Options
 struct ContentView: View {
     var body: some View {
         VStack(spacing: 20) {
+            Text("Previews")
+                .font(.largeTitle)
             
-           Text("Layout Behavior")
-            Text("Views that Push Out")
-                .font(.title)
+            Text("Introduction")
                 .foregroundColor(.gray)
             
-            Text("Some views will push out to fill up all available space within their parent.")
+            Text("Xcode looks for a struct that conforms to the PreviewProvider protocol and accesses its previews property to display a view on the Canvas.")
                 .frame(maxWidth: .infinity)
                 .padding()
-                .font(.title)
-                .background(Color.purple)
+                .background(Color.red)
                 .layoutPriority(1)
-            
-            Color.purple
-            // Add 5 layers on top of the color view
-                .overlay(
-                    Image(systemName: "arrow.up.left")
-                        .padding() // Add spacing around the symbol
-                    ,alignment: .topLeading) // Align within the layer
-                .overlay(
-                    Image(systemName: "arrow.up.right")
-                        .padding()
-                    , alignment: .topTrailing)
-                .overlay(
-                    Image(systemName: "arrow.down.left")
-                        .padding()
-                    , alignment: .bottomLeading)
-                .overlay(
-                        Image(systemName: "arrow.down.right")
-                            .padding()
-                    , alignment: .bottomTrailing)
-                .overlay(Text("Colors are Push-Out views"))
-        
-            
-        }
-        .font(.largeTitle)
-        //.edgesIgnoringSafeArea(.bottom)
-
+                .foregroundColor(.white)
+        }.font(.title)
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+
+// Xcode looks for PreviewProvider struct
+struct Previews_Intro_Previews: PreviewProvider {
+// It will access this property to get a view to show in the Canvas (if the Canvas is shown)
     static var previews: some View {
+        // Instantiate and return your view inside this property to see a preview of it
         ContentView()
     }
 }
