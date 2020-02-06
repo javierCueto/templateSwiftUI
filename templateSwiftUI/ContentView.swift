@@ -9,17 +9,17 @@
 import SwiftUI
 
 
-// Preview Options
+// Dark mode
 struct ContentView: View {
     var body: some View {
         VStack(spacing: 20) {
             Text("Previews")
                 .font(.largeTitle)
             
-            Text("Introduction")
+            Text("Dark Mode")
                 .foregroundColor(.gray)
             
-            Text("Xcode looks for a struct that conforms to the PreviewProvider protocol and accesses its previews property to display a view on the Canvas.")
+            Text("By default, your preview show in light mode. to see it in dark mode, you can use the enviroment modifier")
                 .frame(maxWidth: .infinity)
                 .padding()
                 .background(Color.red)
@@ -30,11 +30,12 @@ struct ContentView: View {
 }
 
 
-// Xcode looks for PreviewProvider struct
-struct Previews_Intro_Previews: PreviewProvider {
-// It will access this property to get a view to show in the Canvas (if the Canvas is shown)
-    static var previews: some View {
-        // Instantiate and return your view inside this property to see a preview of it
-        ContentView()
+struct Preview_DarkMode_Previews: PreviewProvider {
+    static var previews:
+        some View {
+        Group {
+            ContentView() // Light Mode
+//            ContentView().environment(\.colorScheme,.dark)
+        }
     }
 }
