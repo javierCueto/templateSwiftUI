@@ -8,39 +8,40 @@
 
 import SwiftUI
 
+
+// some views pull In
+
 struct ContentView: View {
     var body: some View {
         VStack(spacing: 20) {
-            Text("Shapes")
+            
+            Text("Layout Behavior")
                 .font(.largeTitle)
             
-            Text("Short Introduction")
+            Text("Views that Pull In")
                 .foregroundColor(Color.gray)
             
-            Text("I'll make shapes, give them color and put them behind other views just for decoration.")
+            Text("Some views minimize their frame size so it is only as big as the content within it.")
                 .frame(maxWidth: .infinity)
                 .padding()
-                .background(Color.blue)
+                .background(Color.purple)
                 .foregroundColor(Color.white)
-                .layoutPriority(3)
+                .layoutPriority(1)
             
-            Text("This text has a rounded rectangle behind it")
-                .foregroundColor(.white)
+           Image(systemName: "arrow.down.to.line.alt")
+            HStack {
+                // Order views horizontally
+                Image(systemName: "arrow.right.to.line.alt")
+                Text("Text views pull in")
+                Image(systemName: "arrow.left.to.line.alt")
+            }
+            
+            Image(systemName: "arrow.up.to.line.alt")
+            Text("Pull-In views tend to center themselves within their parent container view.")
+                .frame(maxWidth: .infinity)
                 .padding()
-                .background(
-                    RoundedRectangle(cornerRadius: 20)// shape
-                        .foregroundColor(.blue))// shape blue
-                .padding()
-                .layoutPriority(2)
-            
-            Text("But sometimes I'll use color and a corner radius:")
-            
-            
-            Text("This text has a color with a corner radius")
-                .foregroundColor(.white)
-                .padding()
-                .background(Color.blue)
-                .cornerRadius(20)
+                .background(Color.purple)
+                .foregroundColor(Color.white)
                 .layoutPriority(1)
         
             
